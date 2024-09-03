@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React configurations for TypeScript",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "target": "ESNext"
+  }
+}

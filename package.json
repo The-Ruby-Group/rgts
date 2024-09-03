@@ -1,0 +1,39 @@
+{
+  "name": "@the-ruby-group/rgts",
+  "version": "0.0.0-beta.0",
+  "description": "Custom TypeScript configurations extending Google's `gts` for ESLint, Prettier, and TypeScript, packaged for easy reuse across projects.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/The-Ruby-Group/rgts"
+  },
+  "license": "MIT",
+  "author": "The Ruby Group <https://github.com/the-ruby-group>",
+  "files": [
+    ".eslintrc.js",
+    ".prettierrc.js",
+    "tsconfig.base.json",
+    "tsconfig.react.json"
+  ],
+  "scripts": {
+    "preinstall": "npx only-allow bun && bun run sort-package-json",
+    "sort-package-json": "sort-package-json '{./package.json,{./examples,./javascript}/*/package.json}'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.4.0",
+    "@typescript-eslint/parser": "^8.4.0",
+    "eslint": "8.57.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "gts": "^5.3.1",
+    "prettier": "^3.3.3",
+    "sort-package-json": "latest"
+  },
+  "peerDependencies": {
+    "gts": "^5.3.1",
+    "typescript": ">=5"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
