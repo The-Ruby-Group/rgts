@@ -1,0 +1,11 @@
+{
+  "extends": "@the-ruby-group/rgts/tsconfig.react.json",
+  "compilerOptions": {
+    "rootDir": "src",
+    "outDir": "dist",
+    "types": ["vite/client"]
+  },
+  "include": ["src"],
+  "exclude": ["dist"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}
