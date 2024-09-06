@@ -2,6 +2,15 @@
   "name": "@the-ruby-group/rgts",
   "version": "0.0.1",
   "description": "Custom TypeScript configurations extending Google's `gts` for ESLint, Prettier, and TypeScript, packaged for easy reuse across projects.",
+  "keywords": [
+    "the-ruby-group",
+    "typescript",
+    "eslint",
+    "prettier",
+    "gts",
+    "eslint-config",
+    "prettier-config"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/The-Ruby-Group/rgts"
@@ -13,26 +22,32 @@
     "prettier.*.js",
     "tsconfig.*.json"
   ],
+  "scripts": {
+    "sort-package-json": "sort-package-json"
+  },
   "dependencies": {
     "@eslint/js": "^9.9.1",
     "@typescript-eslint/eslint-plugin": "^8.4.0",
     "@typescript-eslint/parser": "^8.4.0",
     "eslint": "^9.9.1",
-    "gts": "^5.3.1",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-n": "^17.10.2",
     "eslint-plugin-prettier": "^5.2.1",
+    "eslint-plugin-simple-import-sort": "^12.1.1",
+    "gts": "^5.3.1",
     "prettier": "^3.3.3",
     "typescript-eslint": "^8.4.0"
+  },
+  "devDependencies": {
+    "sort-package-json": "=2.8.0"
   },
   "peerDependencies": {
     "typescript": ">=5"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "engines": {
     "node": ">=18"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
