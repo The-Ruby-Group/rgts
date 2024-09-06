@@ -1,6 +1,6 @@
 {
   "name": "@the-ruby-group/rgts",
-  "version": "0.0.0-beta.12",
+  "version": "0.0.1",
   "description": "Custom TypeScript configurations extending Google's `gts` for ESLint, Prettier, and TypeScript, packaged for easy reuse across projects.",
   "repository": {
     "type": "git",

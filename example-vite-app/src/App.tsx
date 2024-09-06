@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <div>
-        <a href="#" target="_blank">
+        <a href="https://github.com/the-ruby-group" target="_blank">
           <img
             src="/ruby-group.svg"
             className="logo rubygroup"
