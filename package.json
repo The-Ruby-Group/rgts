@@ -1,6 +1,6 @@
 {
   "name": "@the-ruby-group/rgts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Custom TypeScript configurations extending Google's `gts` for ESLint, Prettier, and TypeScript, packaged for easy reuse across projects.",
   "keywords": [
     "the-ruby-group",
@@ -24,7 +24,6 @@
     "patches"
   ],
   "scripts": {
-    "postinstall": "patch-package",
     "sort-package-json": "sort-package-json"
   },
   "dependencies": {
@@ -36,10 +35,9 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-n": "^17.10.2",
     "eslint-plugin-prettier": "^5.2.1",
-    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-hooks": "^5.1.0-beta-26f2496093-20240514",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "gts": "^5.3.1",
-    "patch-package": "^8.0.0",
     "prettier": "^3.3.3",
     "typescript-eslint": "^8.4.0"
   },
