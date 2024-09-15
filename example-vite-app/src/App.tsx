@@ -10,6 +10,7 @@ function App() {
 
   useEffect(() => {
     console.log('Hello, Ruby Group!', count);
+    setCount(0);
   }, []);
 
   return (

@@ -12,6 +12,9 @@ module.exports = [
     languageOptions: {
       parser: tsParser,
     },
+    rules: {
+      '@eslint-react/hooks-extra/no-direct-set-state-in-use-effect': 'off',
+    },
   },
   {
     files: ['**/*.jsx', '**/*.tsx'],

@@ -1,5 +1,6 @@
 // Import the configuration from @the-ruby-group/rgts
 import rubyGroupConfig from '@the-ruby-group/rgts/eslint.config.react.js';
+// import rubyGroupConfig from '../eslint.config.react.js';
 
 export default [
   ...rubyGroupConfig,
