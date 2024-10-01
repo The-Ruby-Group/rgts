@@ -1,6 +1,6 @@
 {
   "name": "@the-ruby-group/rgts",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Custom TypeScript configurations extending Google's `gts` for ESLint, Prettier, and TypeScript, packaged for easy reuse across projects.",
   "keywords": [
     "the-ruby-group",
@@ -45,7 +45,8 @@
     "sort-package-json": "=2.8.0"
   },
   "peerDependencies": {
-    "typescript": ">=5"
+    "typescript": ">=5",
+    "gts": ">=5"
   },
   "engines": {
     "node": ">=18"
