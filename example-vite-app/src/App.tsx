@@ -3,10 +3,15 @@ import './App.css';
 import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 function App() {
   const [count, setCount] = useState(0);
+
+  useCallback(
+    (unusedVar: number) => console.log('Hello, Ruby Group!', count),
+    [count]
+  );
 
   useEffect(() => {
     console.log('Hello, Ruby Group!', count);
