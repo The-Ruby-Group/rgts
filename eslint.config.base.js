@@ -22,12 +22,25 @@ module.exports = [
         'error',
         {
           groups: [
-            // Side effect imports.
+            // Side effect imports (have side effects but don't actually import any bindings).
             ['^\\u0000'],
             // Parent imports. Put `..` last.
-            ['^\\.\\.(?!/?$)', '^\\.\\./?$'],
+            [
+              '^\\.\\.(?!/?$)', //
+              '^\\.\\./?$', //
+            ],
             // Other relative imports. Put same-folder imports and `.` last.
-            ['^\\./(?=.*/)(?!/?$)', '^\\.(?!/?$)', '^\\./?$'],
+            [
+              '^\\./(?=.*/)(?!/?$)', // for example "./components/Button"
+              '^\\.(?!/?$)', // for example "./components"
+              '^\\./?$', // for example "./"
+            ],
+            // Imports starting with '@/'
+            [
+              '^@/(?=.*/)(?!/?$)', // for example "@/components/Button"
+              '^@/(?!/?$)', // for example "@/components"
+              '^@//?$', // for example "@/" or "@"
+            ],
           ],
         },
       ],
