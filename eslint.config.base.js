@@ -1,4 +1,5 @@
 const gtsConfig = require('./eslint.config.gts');
+const prettierConfig = require('./prettier.config.js');
 
 const nodePlugin = require('eslint-plugin-n');
 const eslintPluginPrettier = require('eslint-plugin-prettier');
@@ -16,7 +17,7 @@ module.exports = [
       'no-empty-pattern': 'warn',
       'n/no-extraneous-import': 'off',
       'n/no-unpublished-import': 'error',
-      'prettier/prettier': 'error',
+      'prettier/prettier': ['error', prettierConfig],
       'simple-import-sort/exports': 'error',
       'simple-import-sort/imports': [
         'error',
