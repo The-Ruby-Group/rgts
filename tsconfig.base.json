@@ -1,26 +1,84 @@
 {
-  "extends": "gts/tsconfig-google.json",
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Default configuration for TypeScript",
+  "display": "The Ruby Group - base TypeScript configuration",
+
+  // Architecture notes:
+  // - Consumer projects extend this via: "extends": "@the-ruby-group/rgts/tsconfig.base.json"
+  // - This file does NOT set outDir, rootDir, or include -- those are project-specific and must
+  //   be defined by the consumer's tsconfig.json.
+  // - Several safety checks below are designed to catch common bugs at
+  //   compile time rather than runtime.
+
   "compilerOptions": {
-    "lib": ["ESNext", "DOM"],
-    "module": "ESNext",
-    "target": "ESNext",
-    "moduleResolution": "node",
-    "allowJs": false,
-    "allowSyntheticDefaultImports": true,
-    "composite": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "preserveWatchOutput": true,
+    // -- Language & Target --
+    // lib ES2023: provides access to modern APIs like Array.findLast, etc.
+    "lib": ["ES2023"],
+    // target ES2022: emits top-level await, class fields -- supported by Node.js 20+
+    "target": "ES2022",
+
+    // -- Modules & Resolution --
+    // module/moduleResolution NodeNext: aligns TypeScript's module resolution with Node.js standard,
+    //   handling package.json "exports" and requiring explicit file extensions for relative imports.
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
+    // resolveJsonModule: true -- allows importing JSON files with type safety
     "resolveJsonModule": true,
-    "skipLibCheck": true,
+    // verbatimModuleSyntax: enforces explicit `type` modifiers on import/export statements for types,
+    //   resulting in predictable emit and preventing runtime errors with bundlers or modules.
+    "verbatimModuleSyntax": true,
+
+    // -- Strict Type Checking --
+    // exactOptionalPropertyTypes: Enforces that optional properties aren't assigned 'undefined' unless explicitly typed.
+    "exactOptionalPropertyTypes": true,
+    // noPropertyAccessFromIndexSignature: Forces 'obj["key"]' syntax for dynamic index signatures.
+    "noPropertyAccessFromIndexSignature": true,
+    // noUncheckedIndexedAccess: Adds `undefined` to a type when accessed using an index, forcing explicit checks.
+    "noUncheckedIndexedAccess": true,
+    // noUnusedLocals / noUnusedParameters: Reports errors on unused variables to keep code clean.
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    // strict: Enables all strict type checking options (including strictNullChecks and strictFunctionTypes).
     "strict": true,
-    "strictFunctionTypes": true,
-    "strictNullChecks": true,
-    "types": ["node"]
-  }
+
+    // -- Additional Safety Checks --
+    // allowUnreachableCode / allowUnusedLabels: Reports errors for dead code or unused labels.
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    // noFallthroughCasesInSwitch: Ensures non-empty switch cases explicitly break, return, or throw.
+    "noFallthroughCasesInSwitch": true,
+    // noImplicitOverride: Forces 'override' keyword on overridden base class methods.
+    "noImplicitOverride": true,
+    // noImplicitReturns: Ensures all code paths in a function return a value if it has a return type.
+    "noImplicitReturns": true,
+
+    // -- Output Settings --
+    // declaration + declarationMap: enables "Go to Definition" for consumers
+    "declaration": true,
+    "declarationMap": true,
+    // noEmitOnError: prevents shipping broken JS when types fail
+    "noEmitOnError": true,
+    // preserveWatchOutput: Keeps watch mode terminal output clean across recompilations.
+    "preserveWatchOutput": true,
+    // sourceMap: enables debugging with original TS code
+    "sourceMap": true,
+    // stripInternal: removes @internal-tagged APIs from .d.ts output
+    "stripInternal": true,
+
+    // -- Consistency --
+    // forceConsistentCasingInFileNames: Prevents "works on Mac, fails on Linux" import issues.
+    "forceConsistentCasingInFileNames": true,
+
+    // -- Compatibility & Ecosystem --
+    // allowJs: false -- intended for TypeScript-only projects
+    "allowJs": false,
+    // composite: Enables project references, useful for monorepos.
+    "composite": true,
+    // esModuleInterop: Emits additional JS to ease support for importing CommonJS modules.
+    "esModuleInterop": true,
+    // isolatedModules: Ensures files can be safely transpiled by single-file tools (like Vite/esbuild).
+    "isolatedModules": true,
+    // skipLibCheck: speeds up compilation by not re-checking node_modules .d.ts files
+    "skipLibCheck": true
+  },
+  "exclude": ["node_modules"]
 }
