@@ -30,7 +30,9 @@
   "scripts": {
     "clean": "rimraf node_modules bun.lockb",
     "preinstall": "npx only-allow bun",
-    "prepare": "husky"
+    "prepare": "husky || true",
+    "prepublishOnly": "npm test",
+    "test": "eslint ."
   },
   "lint-staged": {
     "*.{js,jsx,mjs,cjs}": "eslint --fix",
