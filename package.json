@@ -28,10 +28,10 @@
     "patches"
   ],
   "scripts": {
-    "clean": "rimraf node_modules bun.lockb",
-    "preinstall": "npx only-allow bun",
-    "prepare": "husky || true",
-    "prepublishOnly": "npm test",
+    "clean": "rimraf node_modules bun.lock",
+    "preinstall": "bunx only-allow bun",
+    "prepare": "bunx husky || true",
+    "prepublishOnly": "bun run test",
     "test": "eslint ."
   },
   "lint-staged": {
