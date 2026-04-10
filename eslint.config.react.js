@@ -4,7 +4,6 @@ import { defineConfig } from 'eslint/config';
 import hooksPlugin from 'eslint-plugin-react-hooks';
 
 // Allow importing from the local eslint base configuration.
-// eslint-disable-next-line n/no-unpublished-import
 import baseConfig from './eslint.config.js';
 
 /**

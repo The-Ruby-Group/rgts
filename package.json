@@ -1,6 +1,6 @@
 {
   "name": "@the-ruby-group/rgts",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Custom TypeScript configurations for ESLint, Prettier, and TypeScript, packaged for easy reuse across projects.",
   "keywords": [
     "the-ruby-group",
@@ -22,6 +22,7 @@
   "author": "The Ruby Group <https://github.com/the-ruby-group>",
   "type": "module",
   "files": [
+    "eslint.config.js",
     "eslint.config.*.js",
     "prettier.*.js",
     "tsconfig.*.json",
